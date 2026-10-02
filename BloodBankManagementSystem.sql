@@ -55,21 +55,6 @@ insert into blood_request values
 (104, 1, 'Completed', '2026-09-29', 1, 1),
 (105, 5, 'Pending', '2026-09-30', 2, 1);
 
-create table blood_group(
-blood_group_id int primary key, 
-blood_group_name varchar(20)
-);
-
-insert into blood_group values
-(1, 'O positive'),
-(2, 'O negative'), 
-(3, 'A positive'),
-(4, 'A negative'),
-(5, 'B positive'),
-(6, 'B negative'),
-(7, 'AB positive'),
-(8, 'AB negative');
-
 create table donor(
 donor_id int primary key,
 donor_name varchar(20),
@@ -133,4 +118,26 @@ VALUES
 (6, 6, 18, '2026-10-25', '2026-09-28'),
 (7, 7, 7,  '2026-10-10', '2026-09-16'),
 (8, 8, 14, '2026-10-19', '2026-09-24');
+
+create table blood_issue(
+issue_id int primary key,
+request_id int,
+stock_id int,
+issue_date DATE,
+units_issued int,
+foreign key(request_id) references blood_request(request_id),
+foreign key(stock_id) references blood_stock(stock_id));
+
+INSERT INTO blood_issue
+VALUES
+(1, 101, 1, '2026-09-21', 2),
+(2, 102, 2, '2026-09-22', 1),
+(3, 103, 3, '2026-09-23', 2),
+(4, 104, 4, '2026-09-24', 1),
+(5, 105, 5, '2026-09-25', 2),
+(6, 101, 6, '2026-09-26', 1),
+(7, 104, 7, '2026-09-27', 1),
+(8, 102, 8, '2026-09-28', 2),
+(9, 105, 1, '2026-09-29', 1),
+(10, 103, 2, '2026-09-30', 1);
 
