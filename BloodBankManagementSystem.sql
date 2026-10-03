@@ -99,6 +99,8 @@ VALUES
 (8, 8, 8, '2026-06-30', 1),
 (9, 9, 1, '2026-08-22', 1),
 (10, 10, 2, '2026-05-15', 2);
+alter table donation
+RENAME COLUMN id TO donation_id;
 
 create table blood_stock(
 stock_id int primary key,
