@@ -143,3 +143,27 @@ VALUES
 (9, 105, 1, '2026-09-29', 1),
 (10, 103, 2, '2026-09-30', 1);
 
+drop table blood_issue;
+
+create table blood_issue(
+issue_id int primary key,
+request_id int,
+blood_group_id int,
+issue_date DATE,
+units_issued int,
+foreign key(request_id) references blood_request(request_id),
+foreign key(blood_group_id) references blood_group(blood_group_id));
+
+INSERT INTO blood_issue
+VALUES
+(1, 101, 1, '2026-09-21', 2),
+(2, 102, 2, '2026-09-22', 1),
+(3, 103, 3, '2026-09-23', 2),
+(4, 104, 4, '2026-09-24', 1),
+(5, 105, 5, '2026-09-25', 2),
+(6, 101, 6, '2026-09-26', 1),
+(7, 104, 7, '2026-09-27', 1),
+(8, 102, 8, '2026-09-28', 2),
+(9, 105, 1, '2026-09-29', 1),
+(10, 103, 2, '2026-09-30', 1);
+
